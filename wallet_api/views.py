@@ -110,7 +110,7 @@ def deposit_api(request, *args, **kwargs):
    
     serializer = BalanceSerializer(data=dict(
         reference_id = request.data.get('reference_id'),
-        transaction_type = "Deposit",
+        transaction_type = "deposit",
         transaction_date = datetime.now(),
         amount=request.data.get('amount'),
         status="Success" if success else "Failed",
@@ -155,7 +155,7 @@ def withdrawal_api(request, *args, **kwargs):
     wallet_serializer=WalletBalanceSerializer(wallet,data=dict(balance=balance),partial=True)
     serializer = BalanceSerializer(data=dict(
         reference_id = request.data.get('reference_id'),
-        transaction_type = "Withdrawal",
+        transaction_type = "withdrawal",
         transaction_date = datetime.now(),
         amount=request.data.get('amount'),
         status="Success" if success else "Failed",
