@@ -172,9 +172,9 @@ def withdrawal_api(request, *args, **kwargs):
         serializer.save()
         data = dict(
             id=serializer.validated_data['wallet'],
-            deposited_by=serializer.validated_data['owned_by'],
+            withdrawn_by=serializer.validated_data['owned_by'],
             status=serializer.validated_data['status'],
-            deposited_at=serializer.validated_data['transaction_date'],
+            withdrawn_at=serializer.validated_data['transaction_date'],
             amount=serializer.validated_data['amount'],
             reference_id=serializer.validated_data['reference_id'],
         )
